@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Dimensions</title>
+  <style>
+    /* CSS Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at top left, rgba(73, 237, 0, 0.3), rgba(0, 0, 0, 0.85));
+      align-items: center;
+      justify-content: center;
+      animation: zoomIn 0.5s ease forwards;
+    }
+    .modal-content {
+      background-color: #212121;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      text-align: center;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5em;
+      color: #49ed00;
+    }
+    .modal-header .close {
+      cursor: pointer;
+      font-size: 1.8em;
+      color: #49ed00;
+      margin-right: 20px;
+    }
+    .modal-header .close:hover {
+      color: rgba(73, 237, 0, 0.7);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin-top: 0;
+    }
+    /* Additional styles for buttons, animations, etc. */
+    .show-modal-btn, .go-btn, .arrow-btn { /* Button styles */ }
+  </style>
+</head>
+<body>
+  <!-- HTML Content -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+      <iframe id="modalIframe"></iframe>
+      <div id="spinner" class="spinner"></div>
+      <div id="fallback" class="fallback" style="display:none;">
+        The journey awaits. Click below to explore the next destination!
+      </div>
+      <button class="go-btn" onclick="goToSite()">Go</button>
+    </div>
+  </div>
+
+  <button class="show-modal-btn" onclick="reopenModal()">Enter Portal</button>
+
+  <script>
+    // JavaScript Functionality
+    let links = [
+      'https://www.profitablecpmrate.com/mjwr0zjqf?key=3fe472a4d758570021e5d068ab346cdc',
+      'https://www.profitablecpmrate.com/hx4wb37jfd?key=f6242d0be6f2df59e98f388def77a91f',
+      'https://www.profitablecpmrate.com/sm59cb8p?key=aa9e93fd81581ca88442f0521d9d3d7c',
+      'https://www.profitablecpmrate.com/h7z1j3m5?key=e813890eeefe2435827445ad8663b1cf'
+    ];
+    let currentIndex = 0;
+    let autoNavigateInterval;
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function refreshPage(interval = 250000) {
+      setInterval(() => { location.reload(); }, interval);
+    }
+
+    function showLink(index) {
+      const iframe = document.getElementById('modalIframe');
+      const modal = document.getElementById('myModal');
+      const spinner = document.getElementById('spinner');
+
+      iframe.src = links[index];
+      modal.style.display = 'flex';
+      spinner.style.display = 'block';
+
+      iframe.onload = () => {
+        spinner.style.display = 'none';
+      };
+
+      clearInterval(autoNavigateInterval);
+      autoNavigateInterval = setInterval(() => { navigate(1); }, Math.floor(Math.random() * (40000 - 30000 + 1) + 30000));
+    }
+
+    function navigate(direction) {
+      currentIndex = (currentIndex + direction + links.length) % links.length;
+      showLink(currentIndex);
+    }
+
+    function goToSite() {
+      window.open(links[currentIndex], '_blank');
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+      document.getElementById('modalIframe').src = '';
+      document.getElementById('fallback').style.display = 'flex';
+      clearInterval(autoNavigateInterval);
+    }
+
+    function reopenModal() {
+      showLink(currentIndex);
+    }
+
+    window.onload = function () {
+      shuffleArray(links);
+      refreshPage();
+      showLink(currentIndex);
+    };
+  </script>
+</body>
+</html>
