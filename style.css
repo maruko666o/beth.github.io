@@ -74,10 +74,17 @@ header p, footer p {
 }
 
 .cat-img {
-    max-width: 100%;
+    max-width: 80%; /* Reduced size for the cat images */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cat-caption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
 }
 
 footer {
