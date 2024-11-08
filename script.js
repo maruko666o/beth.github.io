@@ -1,62 +1,23 @@
-let currentSlideIndex = 0;
-const slides = document.getElementsByClassName("slide");
-const slideInterval = 5000; // Change slide every 5 seconds
-let autoSlideTimer;
-
-// Initialize first slide
-showSlide(currentSlideIndex);
-
-// Auto slide function
-function startAutoSlide() {
-    autoSlideTimer = setInterval(() => {
-        changeSlide(1);
-    }, slideInterval);
+// Function to switch to the second page
+function goToNextPage() {
+    document.getElementById("main-page").style.opacity = 0; // Fade out main page
+    setTimeout(function() {
+        document.getElementById("main-page").style.display = "none"; // Hide main page
+        document.getElementById("second-page").style.display = "block"; // Show second page
+        setTimeout(function() {
+            document.getElementById("second-page").style.opacity = 1; // Fade in second page
+        }, 10); // Short delay for smooth transition
+    }, 500); // Delay to allow opacity transition
 }
 
-// Show the selected slide
-function showSlide(index) {
-    for (let slide of slides) {
-        slide.classList.remove("active");
-    }
-    slides[index].classList.add("active");
+// Function to go back to the main page
+function goToMainPage() {
+    document.getElementById("second-page").style.opacity = 0; // Fade out second page
+    setTimeout(function() {
+        document.getElementById("second-page").style.display = "none"; // Hide second page
+        document.getElementById("main-page").style.display = "block"; // Show main page
+        setTimeout(function() {
+            document.getElementById("main-page").style.opacity = 1; // Fade in main page
+        }, 10); // Short delay for smooth transition
+    }, 500); // Delay to allow opacity transition
 }
-
-// Manually change slides
-function changeSlide(n) {
-    currentSlideIndex += n;
-    if (currentSlideIndex >= slides.length) {
-        currentSlideIndex = 0;
-    } else if (currentSlideIndex < 0) {
-        currentSlideIndex = slides.length - 1;
-    }
-    showSlide(currentSlideIndex);
-}
-
-// Swipe functionality for mobile
-let startX;
-const slider = document.getElementById("slider");
-
-slider.addEventListener("touchstart", (e) => {
-    clearInterval(autoSlideTimer); // Pause auto-slide on swipe
-    startX = e.touches[0].clientX;
-});
-
-slider.addEventListener("touchmove", (e) => {
-    if (!startX) return;
-    let endX = e.touches[0].clientX;
-    let diff = startX - endX;
-
-    if (diff > 50) {
-        changeSlide(1);
-        startX = null;
-    } else if (diff < -50) {
-        changeSlide(-1);
-        startX = null;
-    }
-});
-
-slider.addEventListener("touchend", () => {
-    startAutoSlide(); // Resume auto-slide after swipe
-});
-
-startAutoSlide();
