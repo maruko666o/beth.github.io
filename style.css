@@ -67,6 +67,7 @@ header p, footer p {
 .slide {
     display: none;
     padding: 20px;
+    position: relative;
 }
 
 .slide.active {
@@ -74,10 +75,11 @@ header p, footer p {
 }
 
 .cat-img {
-    max-width: 80%; /* Reduced size for the cat images */
+    max-width: 60%; /* Smaller cat images */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 .cat-caption {
@@ -85,6 +87,10 @@ header p, footer p {
     color: #555;
     margin-top: 10px;
     font-style: italic;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 footer {
