@@ -1,5 +1,4 @@
 /* Improved styling for a vibrant look */
-
 * {
     margin: 0;
     padding: 0;
@@ -30,7 +29,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Ensures content doesn't overflow out of the container */
+    overflow: hidden;
 }
 
 header h1 {
@@ -83,18 +82,11 @@ header p, footer p {
     margin-bottom: 10px;
 }
 
-.cat-caption {
-    font-size: 0.8em; /* Smaller text for the caption */
+.caption {
+    font-size: 0.9em; /* Smaller text for the caption */
     color: #555;
     margin-top: 5px;
     font-style: italic;
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-    padding: 5px;
-    border-radius: 5px;
 }
 
 footer {
@@ -128,7 +120,7 @@ button {
         width: 40%; /* Reduce image size even more for smaller screens */
         height: 40%; /* Ensure circular shape */
     }
-    .cat-caption {
+    .caption {
         font-size: 0.7em; /* Even smaller caption on mobile */
     }
 }
@@ -141,7 +133,7 @@ button {
         width: 35%; /* Even smaller for very small screens */
         height: 35%; /* Ensure circular shape */
     }
-    .cat-caption {
+    .caption {
         font-size: 0.6em; /* Smaller caption for very small screens */
     }
 }
