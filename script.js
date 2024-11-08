@@ -80,3 +80,29 @@ function goToMainPage() {
 }
 
 startAutoSlide();
+
+// Add this to your script.js
+
+function playFlipSound() {
+    const flipSound = new Audio('flip.mp3');
+    flipSound.play();
+}
+
+function goToNextPage() {
+    const mainPage = document.getElementById('main-page');
+    const secondPage = document.getElementById('second-page');
+    const flipCard = document.querySelector('.flip-card');
+
+    // Play the flip sound
+    playFlipSound();
+
+    // Flip the card
+    flipCard.classList.add('flip');
+
+    // Wait for the flip animation to complete
+    setTimeout(() => {
+        // Hide main page, show second page
+        mainPage.style.display = 'none';
+        secondPage.style.display = 'block';
+    }, 1000); // Matches the flip animation duration
+}
