@@ -60,20 +60,3 @@ slider.addEventListener("touchend", () => {
 });
 
 startAutoSlide();
-
-// Get references to both pages
-const mainPage = document.getElementById('main-page');
-const secondPage = document.getElementById('second-page');
-
-// Function to go to the next page with flip animation
-function goToNextPage() {
-    mainPage.style.display = 'none';
-    secondPage.classList.add('page-flip');
-    secondPage.style.display = 'block';
-}
-
-// Function to go back to the main page
-function goToMainPage() {
-    secondPage.style.display = 'none';
-    mainPage.style.display = 'block';
-}
