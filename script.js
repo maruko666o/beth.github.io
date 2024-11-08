@@ -23,6 +23,7 @@ function showSlide(index) {
 
 // Manually change slides
 function changeSlide(n) {
+    clearInterval(autoSlideTimer);  // Pause auto-slide when user manually changes slide
     currentSlideIndex += n;
     if (currentSlideIndex >= slides.length) {
         currentSlideIndex = 0;
@@ -30,6 +31,7 @@ function changeSlide(n) {
         currentSlideIndex = slides.length - 1;
     }
     showSlide(currentSlideIndex);
+    startAutoSlide();  // Restart auto-slide after manual change
 }
 
 // Swipe functionality for mobile
@@ -56,27 +58,40 @@ slider.addEventListener("touchmove", (e) => {
 });
 
 slider.addEventListener("touchend", () => {
-    startAutoSlide(); // Resume auto-slide after swipe
+    // Start auto-slide again after swipe ends
+    setTimeout(startAutoSlide, slideInterval);
 });
 
-// Navigate to the second page
+// Navigate to the second page with flip effect
 function goToNextPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
 
-    // Hide main page, show second page
-    mainPage.style.display = 'none';
-    secondPage.style.display = 'block';
+    // Add flip animation class to main page
+    mainPage.classList.add('page-flip');
+
+    // Wait for animation to complete, then switch pages
+    setTimeout(() => {
+        mainPage.style.display = 'none';
+        secondPage.style.display = 'block';
+        mainPage.classList.remove('page-flip'); // Remove animation class
+    }, 1000);  // Duration of the flip animation
 }
 
-// Navigate back to the main page
+// Navigate back to the main page with flip effect
 function goToMainPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
 
-    // Show main page, hide second page
-    mainPage.style.display = 'block';
-    secondPage.style.display = 'none';
+    // Add flip animation class to second page
+    secondPage.classList.add('page-flip');
+
+    // Wait for animation to complete, then switch pages
+    setTimeout(() => {
+        mainPage.style.display = 'block';
+        secondPage.style.display = 'none';
+        secondPage.classList.remove('page-flip'); // Remove animation class
+    }, 1000);  // Duration of the flip animation
 }
 
-startAutoSlide();
+startAutoSlide();  // Start the auto-slide initially
