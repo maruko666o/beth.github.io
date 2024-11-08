@@ -68,13 +68,14 @@ header p, footer p {
 }
 
 img {
-    max-width: 100%;
+    max-width: 80%; /* Reduced image size */
+    height: auto;
     border-radius: 10px;
 }
 
 .caption {
     margin-top: 10px;
-    font-size: 1.2em;
+    font-size: 0.9em; /* Smaller font size for caption */
     color: #ff6b81;
     font-weight: 600;
 }
@@ -107,7 +108,7 @@ footer button:hover, .back-button:hover {
     }
 
     .caption {
-        font-size: 1em;
+        font-size: 0.8em;
     }
 }
 
