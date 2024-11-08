@@ -1,48 +1,82 @@
-// Carousel functionality
 let currentSlideIndex = 0;
+const slides = document.getElementsByClassName("slide");
+const slideInterval = 5000; // Change slide every 5 seconds
+let autoSlideTimer;
 
-function showSlide(index) {
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-        if (i === index) {
-            slide.classList.add("active");
-        }
-    });
+// Initialize first slide
+showSlide(currentSlideIndex);
+
+// Auto slide function
+function startAutoSlide() {
+    autoSlideTimer = setInterval(() => {
+        changeSlide(1);
+    }, slideInterval);
 }
 
-function nextSlide() {
-    const slides = document.querySelectorAll(".slide");
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+// Show the selected slide
+function showSlide(index) {
+    for (let slide of slides) {
+        slide.classList.remove("active");
+    }
+    slides[index].classList.add("active");
+}
+
+// Manually change slides
+function changeSlide(n) {
+    currentSlideIndex += n;
+    if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+    }
     showSlide(currentSlideIndex);
 }
 
-// Set interval for automatic slide change
-setInterval(nextSlide, 3000); // Change slide every 3 seconds
+// Swipe functionality for mobile
+let startX;
+const slider = document.getElementById("slider");
 
-// Function to switch to the second page
+slider.addEventListener("touchstart", (e) => {
+    clearInterval(autoSlideTimer); // Pause auto-slide on swipe
+    startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchmove", (e) => {
+    if (!startX) return;
+    let endX = e.touches[0].clientX;
+    let diff = startX - endX;
+
+    if (diff > 50) {
+        changeSlide(1);
+        startX = null;
+    } else if (diff < -50) {
+        changeSlide(-1);
+        startX = null;
+    }
+});
+
+slider.addEventListener("touchend", () => {
+    startAutoSlide(); // Resume auto-slide after swipe
+});
+
+// Navigate to the second page
 function goToNextPage() {
-    document.getElementById("main-page").style.opacity = 0; // Fade out main page
-    setTimeout(function() {
-        document.getElementById("main-page").style.display = "none"; // Hide main page
-        document.getElementById("second-page").style.display = "block"; // Show second page
-        setTimeout(function() {
-            document.getElementById("second-page").style.opacity = 1; // Fade in second page
-        }, 10); // Short delay for smooth transition
-    }, 500); // Delay to allow opacity transition
+    const mainPage = document.getElementById('main-page');
+    const secondPage = document.getElementById('second-page');
+
+    // Hide main page, show second page
+    mainPage.style.display = 'none';
+    secondPage.style.display = 'block';
 }
 
-// Function to go back to the main page
+// Navigate back to the main page
 function goToMainPage() {
-    document.getElementById("second-page").style.opacity = 0; // Fade out second page
-    setTimeout(function() {
-        document.getElementById("second-page").style.display = "none"; // Hide second page
-        document.getElementById("main-page").style.display = "block"; // Show main page
-        setTimeout(function() {
-            document.getElementById("main-page").style.opacity = 1; // Fade in main page
-        }, 10); // Short delay for smooth transition
-    }, 500); // Delay to allow opacity transition
+    const mainPage = document.getElementById('main-page');
+    const secondPage = document.getElementById('second-page');
+
+    // Show main page, hide second page
+    mainPage.style.display = 'block';
+    secondPage.style.display = 'none';
 }
 
-// Initial slide display
-showSlide(currentSlideIndex);
+startAutoSlide();
