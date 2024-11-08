@@ -76,8 +76,9 @@ header p, footer p {
 
 .cat-img {
     width: 50%; /* Reduced image size for better fitting */
-    height: auto;
-    border-radius: 50%;
+    height: 50%; /* Make it a circle */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensures the image scales to fill the circle without stretching */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
 }
@@ -125,6 +126,7 @@ button {
     }
     .cat-img {
         width: 40%; /* Reduce image size even more for smaller screens */
+        height: 40%; /* Ensure circular shape */
     }
     .cat-caption {
         font-size: 0.7em; /* Even smaller caption on mobile */
@@ -137,6 +139,7 @@ button {
     }
     .cat-img {
         width: 35%; /* Even smaller for very small screens */
+        height: 35%; /* Ensure circular shape */
     }
     .cat-caption {
         font-size: 0.6em; /* Smaller caption for very small screens */
