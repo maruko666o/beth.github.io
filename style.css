@@ -29,7 +29,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  /* Ensures content inside is centered */
+    justify-content: center;
+    overflow: hidden; /* Ensures content doesn't overflow out of the container */
 }
 
 header h1 {
@@ -54,6 +55,8 @@ header p, footer p {
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Ensures full width */
+    height: 300px; /* Controls the carousel size */
 }
 
 .slide {
@@ -67,7 +70,7 @@ header p, footer p {
 }
 
 .cat-img {
-    max-width: 60%; /* Smaller cat images */
+    max-width: 80%; /* Smaller cat images */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -83,6 +86,9 @@ header p, footer p {
     bottom: 10px;
     width: 100%;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Make background semi-transparent */
+    padding: 5px;
+    border-radius: 5px;
 }
 
 footer {
@@ -111,5 +117,8 @@ button {
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.8em;
+    }
+    .cat-img {
+        max-width: 70%; /* Reduce image size more for small screens */
     }
 }
