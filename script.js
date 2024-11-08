@@ -1,3 +1,25 @@
+// Carousel functionality
+let currentSlideIndex = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+            slide.classList.add("active");
+        }
+    });
+}
+
+function nextSlide() {
+    const slides = document.querySelectorAll(".slide");
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
+}
+
+// Set interval for automatic slide change
+setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
 // Function to switch to the second page
 function goToNextPage() {
     document.getElementById("main-page").style.opacity = 0; // Fade out main page
@@ -21,3 +43,6 @@ function goToMainPage() {
         }, 10); // Short delay for smooth transition
     }, 500); // Delay to allow opacity transition
 }
+
+// Initial slide display
+showSlide(currentSlideIndex);
