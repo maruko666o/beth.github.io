@@ -1,12 +1,3 @@
-/* Existing styles */
-body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
 /* Main container for the pages */
 .container {
     width: 100%;
@@ -67,36 +58,66 @@ body {
     transform: rotateY(180deg); /* Initially flipped */
 }
 
-h2 {
+/* Main page content */
+#main-page {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
     text-align: center;
-    font-size: 24px;
+    background-color: #fff;
+}
+
+h1 {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 36px;
+    color: #ff6f61;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    color: #555;
+}
+
+.letter {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.letter-content {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+.cat-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
 }
 
-.video-container iframe {
+.slide {
+    display: none;
+    text-align: center;
+}
+
+.slide.active {
     display: block;
-    margin: 20px auto;
 }
 
-.next-button, .back-button {
-    background-color: #ff6f61;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+/* Slider controls */
+#slider {
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
-.next-button:hover, .back-button:hover {
-    background-color: #e55b4a;
+.slide-container {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slide-container .slide {
+    min-width: 100%;
 }
 
 footer {
@@ -107,4 +128,25 @@ footer {
 footer .heart {
     color: red;
     font-size: 1.5em;
+}
+
+/* Buttons for navigation between pages */
+.next-button, .back-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.next-button:hover, .back-button:hover {
+    background-color: #e55b4a;
+}
+
+.video-container iframe {
+    display: block;
+    margin: 20px auto;
 }
