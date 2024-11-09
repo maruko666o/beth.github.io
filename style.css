@@ -170,3 +170,60 @@ button {
         font-size: 0.6em; /* Smaller caption for very small screens */
     }
 }
+
+/* Styles for the love pop-up */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: pink;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    text-align: center;
+    animation: heartEffect 1s infinite;
+}
+
+.popup-content p {
+    font-size: 18px;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+}
+
+.popup-content button {
+    background-color: #ff5c8d;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+.popup-content button:hover {
+    background-color: #e74c70;
+}
+
+/* Heartbeat animation for the pop-up */
+@keyframes heartEffect {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
