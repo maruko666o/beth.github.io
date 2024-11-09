@@ -69,5 +69,4 @@ function goToMainPage() {
     bookContainer.classList.remove('open-book');
 }
 
-
 startAutoSlide();
