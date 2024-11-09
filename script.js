@@ -69,7 +69,7 @@ slider.addEventListener("touchend", () => {
 function goToNextPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
-    
+    playFlipSound()
     // Apply "book opening" animation to the main page and transition to the second page
     mainPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the main page
     setTimeout(() => {
@@ -83,7 +83,7 @@ function goToNextPage() {
 function goToMainPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
-    
+    playFlipSound()
     // Apply "book closing" animation to the second page and transition to the main page
     secondPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the second page
     setTimeout(() => {
