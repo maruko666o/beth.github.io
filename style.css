@@ -234,11 +234,16 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none; /* Initially hide both pages */
+}
+
+#main-page {
+  display: block; /* Show the first page by default */
 }
 
 .swipe-area {
-  position: absolute;
-  width: 90%; /* Can adjust based on your layout */
+  position: relative;
+  width: 90%; /* Adjust as needed */
   height: 80%;
   overflow: hidden;
   display: flex;
@@ -253,7 +258,6 @@ button {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Add other styles for your content */
 h1 {
   font-size: 2rem;
   color: white;
