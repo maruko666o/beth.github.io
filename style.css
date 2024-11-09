@@ -297,6 +297,7 @@ button {
 }
 
 
+
 .petals-container {
     position: absolute;
     top: 0;
@@ -310,11 +311,11 @@ button {
 .petal {
     position: absolute;
     top: -50px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: pink;
-    clip-path: ellipse(50% 50% at 50% 50%);
     opacity: 0.8;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     animation: fall linear infinite;
 }
 
