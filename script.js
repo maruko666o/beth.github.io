@@ -23,7 +23,6 @@ function showSlide(index) {
 
 // Manually change slides
 function changeSlide(n) {
-    clearInterval(autoSlideTimer);  // Pause auto-slide when user manually changes slide
     currentSlideIndex += n;
     if (currentSlideIndex >= slides.length) {
         currentSlideIndex = 0;
@@ -31,7 +30,6 @@ function changeSlide(n) {
         currentSlideIndex = slides.length - 1;
     }
     showSlide(currentSlideIndex);
-    startAutoSlide();  // Restart auto-slide after manual change
 }
 
 // Swipe functionality for mobile
@@ -58,8 +56,7 @@ slider.addEventListener("touchmove", (e) => {
 });
 
 slider.addEventListener("touchend", () => {
-    // Start auto-slide again after swipe ends
-    setTimeout(startAutoSlide, slideInterval);
+    startAutoSlide(); // Resume auto-slide after swipe
 });
 
 // Navigate to the second page
@@ -82,4 +79,4 @@ function goToMainPage() {
     secondPage.style.display = 'none';
 }
 
-startAutoSlide();  // Start the auto-slide initially
+startAutoSlide();
