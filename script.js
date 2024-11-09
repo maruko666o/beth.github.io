@@ -62,11 +62,47 @@ slider.addEventListener("touchend", () => {
 
 // Navigate to the second page
 // Function to navigate to the second page (book opening animation)
+// Variables for detecting swipe
+let touchstartX = 0;
+let touchendX = 0;
+
+// Detect swipe right to go to the second page (book opening)
+document.getElementById('main-page').addEventListener('touchstart', function(event) {
+    touchstartX = event.changedTouches[0].screenX;
+}, false);
+
+document.getElementById('main-page').addEventListener('touchend', function(event) {
+    touchendX = event.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
+
+// Detect swipe left to go back to the main page (book closing)
+document.getElementById('second-page').addEventListener('touchstart', function(event) {
+    touchstartX = event.changedTouches[0].screenX;
+}, false);
+
+document.getElementById('second-page').addEventListener('touchend', function(event) {
+    touchendX = event.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
+
+// Function to handle swipe gestures
+function handleSwipe() {
+    // If the swipe was right to left (next page)
+    if (touchstartX > touchendX) {
+        goToNextPage(); // Go to the second page
+    }
+    // If the swipe was left to right (previous page)
+    if (touchendX > touchstartX) {
+        goToMainPage(); // Go back to the first page
+    }
+}
+
+// Function to navigate to the second page (book opening animation)
 function goToNextPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
     
-    // Apply "book opening" animation to the main page and transition to the second page
     mainPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the main page
     setTimeout(() => {
         mainPage.style.display = 'none'; // Hide main page after animation
@@ -80,7 +116,6 @@ function goToMainPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
     
-    // Apply "book closing" animation to the second page and transition to the main page
     secondPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the second page
     setTimeout(() => {
         secondPage.style.display = 'none'; // Hide second page after animation
