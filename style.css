@@ -1,5 +1,4 @@
-/* Improved styling for a vibrant look */
-
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +16,7 @@ body {
     margin: 0;
 }
 
+/* Main container */
 .container {
     width: 90%;
     max-width: 400px;
@@ -72,6 +72,7 @@ body {
     animation: closeBook 1s forwards; /* Apply book closing animation when transitioning */
 }
 
+/* Header Styling */
 header h1 {
     font-family: 'Pacifico', cursive;
     font-size: 2em;
@@ -88,6 +89,7 @@ header p, footer p {
     color: #ff6b81;
 }
 
+/* Carousel Styling */
 .slide-container {
     margin: 20px 0;
     position: relative;
@@ -122,6 +124,7 @@ header p, footer p {
     margin-bottom: 10px;
 }
 
+/* Footer Styling */
 footer {
     font-size: 0.9em;
     margin-top: 20px;
@@ -171,8 +174,6 @@ button {
     }
 }
 
-/* Styles for the love pop-up */
-/* Pop-up container */
 /* Pop-up container */
 #cookie-popup {
     position: fixed;
@@ -205,65 +206,7 @@ button {
     transition: filter 0.3s ease-in-out;
 }
 
-/* Pop-up container (no blur effect here) */
-#cookie-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: none;
-    z-index: 9999;
-    animation: heartEffect 1s ease-in-out infinite; /* Heartbeat effect */
-}
-
-/* Heartbeat animation */
-@keyframes heartEffect {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-
-/* Blur background effect, but not the pop-up */
-.blur-background {
-    filter: blur(5px); /* Adjust blur intensity as needed */
-    transition: filter 0.3s ease-in-out;
-}
-
-/* Pop-up container (no blur effect here) */
-#cookie-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: none;
-    z-index: 9999;
-    animation: heartEffect 1s ease-in-out infinite; /* Heartbeat effect */
-}
-
-/* Heartbeat animation */
-@keyframes heartEffect {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-
-/* Text styling */
+/* Pop-up text */
 #cookie-popup p {
     font-family: 'Quicksand', sans-serif;
     font-size: 1.2em;
@@ -273,7 +216,7 @@ button {
     font-weight: 600;
 }
 
-/* Button styling */
+/* Button Styling */
 #cookie-popup button {
     background-color: #ff6b81; /* Pink background */
     color: #fff;
@@ -289,43 +232,7 @@ button {
     background-color: #ff3d5c; /* Darker pink on hover */
 }
 
-/* General reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1a1a1d;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
-
-/* Main content container */
-.main-content {
-    position: relative;
-    text-align: center;
-}
-
-/* Carousel container */
-.carousel {
-    position: relative;
-    z-index: 2; /* Keeps carousel images above the sound animation */
-}
-
-.carousel-images img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    border-radius: 10px;
-}
-
-/* Sound animation container */
+/* Carousel sound animation */
 #soundAnimation {
     position: absolute;
     top: 50%;
@@ -336,7 +243,6 @@ body {
     z-index: 1; /* Places animation behind carousel images */
 }
 
-/* Sound animation bars */
 .sound-bar {
     width: 6px;
     height: 40px;
@@ -371,7 +277,13 @@ body {
     }
 }
 
-/* Button styling */
+/* Main content container */
+.main-content {
+    position: relative;
+    text-align: center;
+}
+
+/* Button for page navigation */
 #nextPageButton {
     margin-top: 20px;
     padding: 10px 20px;
