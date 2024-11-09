@@ -231,40 +231,10 @@ button {
     }
 }
 
-/* Blur background effect, but not the pop-up */
+/* Blur background effect */
 .blur-background {
     filter: blur(5px); /* Adjust blur intensity as needed */
-    transition: filter 0.3s ease-in-out;
-}
-
-/* Pop-up container (no blur effect here) */
-#cookie-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: none;
-    z-index: 9999;
-    animation: heartEffect 1s ease-in-out infinite; /* Heartbeat effect */
-}
-
-/* Heartbeat animation */
-@keyframes heartEffect {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-/* Blur background effect, but not the pop-up */
-.blur-background {
-    filter: blur(5px); /* Adjust blur intensity as needed */
+    pointer-events: none; /* Prevent interactions with blurred content */
     transition: filter 0.3s ease-in-out;
 }
 
