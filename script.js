@@ -178,5 +178,36 @@ function playMusic() {
             audio.play();
         }
 
+// Number of petals to create
+const numPetals = 50;
+const petalsContainer = document.getElementById('petals-container');
 
+// Function to generate a random number within a range
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// Function to create a petal with random properties
+function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    
+    // Set random left position
+    const leftPosition = getRandom(0, 100);
+    petal.style.left = `${leftPosition}%`;
+
+    // Set random animation delay and duration
+    const animationDelay = getRandom(0, 3) + 's'; // Random delay up to 3 seconds
+    const animationDuration = getRandom(5, 8) + 's'; // Random duration between 5-8 seconds
+    petal.style.animationDelay = animationDelay;
+    petal.style.animationDuration = animationDuration;
+
+    // Append the petal to the container
+    petalsContainer.appendChild(petal);
+}
+
+// Create the petals
+for (let i = 0; i < numPetals; i++) {
+    createPetal();
+}
 startAutoSlide();
