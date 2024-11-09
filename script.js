@@ -112,4 +112,29 @@ function closePopup() {
     }
 }
 
+window.onload = function() {
+    // Show the pop-up after 2 seconds of page load
+    setTimeout(() => {
+        var popup = document.getElementById("cookie-popup");
+        var body = document.body;
+        if (popup && body) {
+            popup.style.display = "block";
+            // Apply the blur effect to the background
+            body.classList.add("blur-background");
+        }
+    }, 2000); // Adjust the delay as needed
+};
+
+// Close the pop-up and remove blur effect when the button is clicked
+function closePopup() {
+    var popup = document.getElementById("cookie-popup");
+    var body = document.body;
+    if (popup && body) {
+        popup.style.display = "none";
+        // Remove the blur effect from the background
+        body.classList.remove("blur-background");
+    }
+}
+
+
 startAutoSlide();
