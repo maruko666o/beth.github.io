@@ -143,25 +143,31 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // JavaScript to handle sound and animation
-window.addEventListener('DOMContentLoaded', () => {
-    const backgroundSound = document.getElementById('backgroundSound');
-    const playSoundButton = document.getElementById('cookie-popup');
-    const soundAnimation = document.getElementById('soundAnimation');
-
-    // Play sound when button is clicked
-    playSoundButton.addEventListener('click', () => {
-        backgroundSound.play();
-        playSoundButton.style.display = 'none'; // Hide the button after playing sound
-        soundAnimation.style.display = 'flex'; // Show animation
+// Play the sound after the website loads or on user interaction
+window.addEventListener("DOMContentLoaded", () => {
+    const audio = new Audio("fuwaru.mp3");
+    audio.loop = true; // Ensures the sound loops
+    audio.play().catch(error => {
+        console.log("Audio playback requires user interaction.");
     });
 
-    // Show or hide sound animation based on sound play/pause state
-    backgroundSound.addEventListener('play', () => {
-        soundAnimation.style.display = 'flex';
-    });
+    // Sound animation setup
+    const soundAnimationContainer = document.getElementById("soundAnimation");
+    const barCount = 20; // Number of bars you want in the animation
 
-    backgroundSound.addEventListener('pause', () => {
-        soundAnimation.style.display = 'none';
+    // Create bars dynamically
+    for (let i = 0; i < barCount; i++) {
+        const bar = document.createElement("div");
+        bar.classList.add("bar");
+        bar.style.setProperty("--i", i); // Apply a unique animation delay for each bar
+        soundAnimationContainer.appendChild(bar);
+    }
+
+    // Start sound playback on first user interaction if autoplay is blocked
+    document.body.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+        }
     });
 });
 
