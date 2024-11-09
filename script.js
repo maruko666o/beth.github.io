@@ -146,7 +146,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // Play the sound after the website loads or on user interaction
 window.addEventListener("DOMContentLoaded", () => {
     const audio = new Audio("fuwaru.mp3");
-    audio.loop = true; // Ensures the sound loops
+    audio.loop = false; // Ensures the sound loops
     audio.play().catch(error => {
         console.log("Audio playback requires user interaction.");
     });
