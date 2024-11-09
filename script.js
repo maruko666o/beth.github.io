@@ -1,6 +1,6 @@
 let currentSlideIndex = 0;
 const slides = document.getElementsByClassName("slide");
-const slideInterval = 5000; // Change slide every 5 seconds
+const slideInterval = 5000;
 let autoSlideTimer;
 
 // Initialize first slide
@@ -13,7 +13,6 @@ function startAutoSlide() {
     }, slideInterval);
 }
 
-// Show the selected slide
 function showSlide(index) {
     for (let slide of slides) {
         slide.classList.remove("active");
@@ -21,7 +20,6 @@ function showSlide(index) {
     slides[index].classList.add("active");
 }
 
-// Manually change slides
 function changeSlide(n) {
     currentSlideIndex += n;
     if (currentSlideIndex >= slides.length) {
@@ -32,12 +30,12 @@ function changeSlide(n) {
     showSlide(currentSlideIndex);
 }
 
-// Swipe functionality for mobile
+// Swipe functionality
 let startX;
 const slider = document.getElementById("slider");
 
 slider.addEventListener("touchstart", (e) => {
-    clearInterval(autoSlideTimer); // Pause auto-slide on swipe
+    clearInterval(autoSlideTimer);
     startX = e.touches[0].clientX;
 });
 
@@ -56,27 +54,18 @@ slider.addEventListener("touchmove", (e) => {
 });
 
 slider.addEventListener("touchend", () => {
-    startAutoSlide(); // Resume auto-slide after swipe
+    startAutoSlide();
 });
 
-// Navigate to the second page
+// Page flip animations
 function goToNextPage() {
-    const mainPage = document.getElementById('main-page');
-    const secondPage = document.getElementById('second-page');
-
-    // Hide main page, show second page
-    mainPage.style.display = 'none';
-    secondPage.style.display = 'block';
+    const bookContainer = document.querySelector('.book-container');
+    bookContainer.classList.add('flip');
 }
 
-// Navigate back to the main page
 function goToMainPage() {
-    const mainPage = document.getElementById('main-page');
-    const secondPage = document.getElementById('second-page');
-
-    // Show main page, hide second page
-    mainPage.style.display = 'block';
-    secondPage.style.display = 'none';
+    const bookContainer = document.querySelector('.book-container');
+    bookContainer.classList.remove('flip');
 }
 
 startAutoSlide();
