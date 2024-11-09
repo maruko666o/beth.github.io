@@ -289,30 +289,97 @@ button {
     background-color: #ff3d5c; /* Darker pink on hover */
 }
 
-/* Sound Animation Styling */
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1d;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Main content container */
+.main-content {
+    position: relative;
+    text-align: center;
+}
+
+/* Carousel container */
+.carousel {
+    position: relative;
+    z-index: 2; /* Keeps carousel images above the sound animation */
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Sound animation container */
 #soundAnimation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     gap: 5px;
-    position: relative;
-    height: 50px;
-    justify-content: center;
-    align-items: flex-end;
+    z-index: 1; /* Places animation behind carousel images */
+}
+
+/* Sound animation bars */
+.sound-bar {
+    width: 6px;
+    height: 40px;
+    background-color: #e75480; /* Dark pink */
+    border-radius: 2px;
+    opacity: 0.8;
+    filter: blur(2px);
+    animation: soundWave 1s infinite ease-in-out;
+}
+
+/* Increase the number of bars */
+.sound-bar:nth-child(odd) {
+    height: 60px;
+    animation-delay: 0.1s;
+}
+
+.sound-bar:nth-child(even) {
+    height: 80px;
+    animation-delay: 0.2s;
+}
+
+/* Keyframes for sound bar animation */
+@keyframes soundWave {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.5);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* Button styling */
+#nextPageButton {
     margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #e75480;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 3;
 }
-
-.bar {
-    width: 5px;
-    background-color: #3498db;
-    animation: pulse 0.6s infinite;
-}
-
-.bar:nth-child(2) { animation-delay: 0.1s; }
-.bar:nth-child(3) { animation-delay: 0.2s; }
-.bar:nth-child(4) { animation-delay: 0.3s; }
-
-/* Pulse animation */
-@keyframes pulse {
-    0%, 100% { height: 10px; }
-    50% { height: 30px; }
-}
-
