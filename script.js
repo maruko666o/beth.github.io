@@ -47,10 +47,10 @@ slider.addEventListener("touchmove", (e) => {
     let diff = startX - endX;
 
     if (diff > 50) {
-        changeSlide(1);
+        changeSlide(1); // Swipe left to go to the next slide
         startX = null;
     } else if (diff < -50) {
-        changeSlide(-1);
+        changeSlide(-1); // Swipe right to go to the previous slide
         startX = null;
     }
 });
@@ -59,33 +59,38 @@ slider.addEventListener("touchend", () => {
     startAutoSlide(); // Resume auto-slide after swipe
 });
 
-// Navigate to the second page
-// Function to navigate to the second page (book opening animation)
-function goToNextPage() {
+// Swipe to navigate to second page
+slider.addEventListener("touchend", () => {
+    // Check if we're on the first page and swipe to next page
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
     
-    // Apply "book opening" animation to the main page and transition to the second page
-    mainPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the main page
-    setTimeout(() => {
-        mainPage.style.display = 'none'; // Hide main page after animation
-        secondPage.style.display = 'block'; // Show second page after transition
-        secondPage.style.animation = 'openBook 1s forwards'; // Apply book opening animation to the second page
-    }, 1000); // Wait for the "closeBook" animation to finish before hiding the main page
-}
+    if (currentSlideIndex === 0) {
+        // Apply "book opening" animation to the main page and transition to the second page
+        mainPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the main page
+        setTimeout(() => {
+            mainPage.style.display = 'none'; // Hide main page after animation
+            secondPage.style.display = 'block'; // Show second page after transition
+            secondPage.style.animation = 'openBook 1s forwards'; // Apply book opening animation to the second page
+        }, 1000); // Wait for the "closeBook" animation to finish before hiding the main page
+    }
+});
 
-// Function to navigate back to the main page (book closing animation)
-function goToMainPage() {
+// Swipe to navigate back to the main page
+slider.addEventListener("touchend", () => {
+    // Check if we're on the second page and swipe to go back
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
     
-    // Apply "book closing" animation to the second page and transition to the main page
-    secondPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the second page
-    setTimeout(() => {
-        secondPage.style.display = 'none'; // Hide second page after animation
-        mainPage.style.display = 'block'; // Show main page after transition
-        mainPage.style.animation = 'openBook 1s forwards'; // Apply book opening animation to the main page
-    }, 1000); // Wait for the "closeBook" animation to finish before hiding the second page
-}
+    if (currentSlideIndex === 1) {
+        // Apply "book closing" animation to the second page and transition to the main page
+        secondPage.style.animation = 'closeBook 1s forwards'; // Apply book closing animation to the second page
+        setTimeout(() => {
+            secondPage.style.display = 'none'; // Hide second page after animation
+            mainPage.style.display = 'block'; // Show main page after transition
+            mainPage.style.animation = 'openBook 1s forwards'; // Apply book opening animation to the main page
+        }, 1000); // Wait for the "closeBook" animation to finish before hiding the second page
+    }
+});
 
 startAutoSlide();
