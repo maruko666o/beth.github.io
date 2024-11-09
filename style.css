@@ -137,3 +137,37 @@ button {
         font-size: 0.6em; /* Smaller caption for very small screens */
     }
 }
+
+
+/* CSS for Book Opening Effect */
+.container {
+    transform-style: preserve-3d;
+    perspective: 1000px; /* Adds 3D depth */
+    transition: transform 1s ease-in-out;
+}
+
+.container.open-page {
+    transform: rotateY(-180deg); /* Turns the container to show the second page */
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden; /* Hides the backside when rotated */
+    transition: transform 1s ease-in-out;
+}
+
+#main-page {
+    transform: rotateY(0deg);
+    z-index: 2; /* Keep main page on top initially */
+}
+
+#second-page {
+    transform: rotateY(180deg); /* Position second page in the back */
+    z-index: 1; /* Initially behind */
+}
+
+/* Optional: Add a bit of shadow for a more 3D effect */
+.container.open-page .page {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
