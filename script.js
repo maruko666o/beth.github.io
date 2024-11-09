@@ -89,4 +89,17 @@ function goToMainPage() {
     }, 1000); // Wait for the "closeBook" animation to finish before hiding the second page
 }
 
+// Show the "No cookies, just accept my love" popup when the page loads
+window.onload = function() {
+    const lovePopup = document.getElementById('love-popup');
+    lovePopup.style.display = 'flex'; // Show the popup
+};
+
+// Close the popup when the user clicks "Accept My Love"
+document.getElementById('accept-love').addEventListener('click', function() {
+    const lovePopup = document.getElementById('love-popup');
+    lovePopup.style.display = 'none'; // Hide the popup
+});
+
+
 startAutoSlide();
