@@ -59,24 +59,15 @@ slider.addEventListener("touchend", () => {
     startAutoSlide(); // Resume auto-slide after swipe
 });
 
-// Navigate to the second page
 function goToNextPage() {
-    const mainPage = document.getElementById('main-page');
-    const secondPage = document.getElementById('second-page');
-
-    // Hide main page, show second page
-    mainPage.style.display = 'none';
-    secondPage.style.display = 'block';
+    const container = document.querySelector('.container');
+    container.classList.add('open-page'); // Adds class to trigger opening animation
 }
 
-// Navigate back to the main page
 function goToMainPage() {
-    const mainPage = document.getElementById('main-page');
-    const secondPage = document.getElementById('second-page');
-
-    // Show main page, hide second page
-    mainPage.style.display = 'block';
-    secondPage.style.display = 'none';
+    const container = document.querySelector('.container');
+    container.classList.remove('open-page'); // Removes class to trigger closing animation
 }
+
 
 startAutoSlide();
