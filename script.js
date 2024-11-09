@@ -118,4 +118,10 @@ function closePopup() {
     }
 }
 
+function playFlipSound() {
+    const flipSound = document.getElementById('flip-sound');
+    flipSound.play();
+}
+
+
 startAutoSlide();
