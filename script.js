@@ -59,14 +59,24 @@ slider.addEventListener("touchend", () => {
     startAutoSlide(); // Resume auto-slide after swipe
 });
 
+// Navigate to the second page
 function goToNextPage() {
-    const bookContainer = document.querySelector('.book-container');
-    bookContainer.classList.add('open-book');
+    const mainPage = document.getElementById('main-page');
+    const secondPage = document.getElementById('second-page');
+
+    // Hide main page, show second page
+    mainPage.style.display = 'none';
+    secondPage.style.display = 'block';
 }
 
+// Navigate back to the main page
 function goToMainPage() {
-    const bookContainer = document.querySelector('.book-container');
-    bookContainer.classList.remove('open-book');
+    const mainPage = document.getElementById('main-page');
+    const secondPage = document.getElementById('second-page');
+
+    // Show main page, hide second page
+    mainPage.style.display = 'block';
+    secondPage.style.display = 'none';
 }
 
 startAutoSlide();
