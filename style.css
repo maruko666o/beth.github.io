@@ -306,8 +306,8 @@ button {
 
 .rose {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 10px;
+    height: 10px;
     background-image: url('rose.webp'); /* Replace with a rose image URL */
     background-size: cover;
     border-radius: 50%;
