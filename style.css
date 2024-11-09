@@ -234,6 +234,7 @@ button {
 
 /* Carousel sound animation */
 /* Carousel sound animation */
+/* Carousel sound animation */
 #soundAnimation {
     position: absolute;
     top: 50%;
@@ -241,7 +242,7 @@ button {
     transform: translate(-50%, -50%);
     display: flex;
     gap: 5px;
-    z-index: 10; /* Make sure it appears above other content */
+    z-index: 1; /* Lowered z-index to position it behind the cat image */
     background-color: rgba(255, 0, 0, 0.2); /* Temporary background to check visibility */
     padding: 10px;
 }
@@ -281,6 +282,23 @@ button {
     }
 }
 
+/* Main content container */
+.main-content {
+    position: relative;
+    text-align: center;
+}
+
+/* Make sure the cat image is on top of the sound bars */
+.cat-img {
+    width: 50%; /* Reduced image size for better fitting */
+    height: 50%; /* Make it a circle */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensures the image scales to fill the circle without stretching */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: relative; /* Ensures the image stays above the sound bars */
+    z-index: 2; /* Higher z-index to place it above the sound animation */
+}
 /* Main content container */
 .main-content {
     position: relative;
