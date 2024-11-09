@@ -179,7 +179,7 @@ function playMusic() {
         }
 
 // Number of petals to create
-const numPetals = 50;
+const numPetals = 25;
 const petalsContainer = document.getElementById('petals-container');
 
 // Function to generate a random number within a range
