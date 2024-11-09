@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Play sound when page loads
     backgroundSound.play();
-
+backgroundSound.playbackRate = 1.5;
     // Start sound animation when sound is playing
     backgroundSound.addEventListener('play', () => {
         soundAnimation.style.display = 'flex';
