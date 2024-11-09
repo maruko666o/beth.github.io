@@ -141,4 +141,28 @@ window.addEventListener('DOMContentLoaded', () => {
         soundAnimation.style.display = 'none';
     });
 });
+
+// JavaScript to handle sound and animation
+window.addEventListener('DOMContentLoaded', () => {
+    const backgroundSound = document.getElementById('backgroundSound');
+    const playSoundButton = document.getElementById('cookie-popup');
+    const soundAnimation = document.getElementById('soundAnimation');
+
+    // Play sound when button is clicked
+    playSoundButton.addEventListener('click', () => {
+        backgroundSound.play();
+        playSoundButton.style.display = 'none'; // Hide the button after playing sound
+        soundAnimation.style.display = 'flex'; // Show animation
+    });
+
+    // Show or hide sound animation based on sound play/pause state
+    backgroundSound.addEventListener('play', () => {
+        soundAnimation.style.display = 'flex';
+    });
+
+    backgroundSound.addEventListener('pause', () => {
+        soundAnimation.style.display = 'none';
+    });
+});
+
 startAutoSlide();
