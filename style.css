@@ -233,6 +233,7 @@ button {
 }
 
 /* Carousel sound animation */
+/* Carousel sound animation */
 #soundAnimation {
     position: absolute;
     top: 50%;
@@ -240,7 +241,7 @@ button {
     transform: translate(-50%, -50%);
     display: flex;
     gap: 5px;
-    z-index: 1; /* Places animation behind carousel images */
+    z-index: 2; /* Ensures the sound bars are above other content but behind images */
 }
 
 .sound-bar {
@@ -249,8 +250,8 @@ button {
     background-color: #e75480; /* Dark pink */
     border-radius: 2px;
     opacity: 0.8;
-    filter: blur(2px);
     animation: soundWave 1s infinite ease-in-out;
+    transform-origin: bottom center; /* Ensures the animation grows from the bottom */
 }
 
 /* Increase the number of bars */
