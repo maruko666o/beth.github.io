@@ -63,39 +63,47 @@ slider.addEventListener("touchend", () => {
 // Navigate to the second page
 // Function to navigate to the second page (book opening animation)
 // Variables for detecting swipe
+// Variables for detecting swipe
 let touchstartX = 0;
 let touchendX = 0;
 
 // Detect swipe right to go to the second page (book opening)
 document.getElementById('swipe-main').addEventListener('touchstart', function(event) {
     touchstartX = event.changedTouches[0].screenX;
+    console.log("Touch start at:", touchstartX);
 }, false);
 
 document.getElementById('swipe-main').addEventListener('touchend', function(event) {
     touchendX = event.changedTouches[0].screenX;
+    console.log("Touch end at:", touchendX);
     handleSwipe('main');
 }, false);
 
 // Detect swipe left to go back to the main page (book closing)
 document.getElementById('swipe-second').addEventListener('touchstart', function(event) {
     touchstartX = event.changedTouches[0].screenX;
+    console.log("Touch start at:", touchstartX);
 }, false);
 
 document.getElementById('swipe-second').addEventListener('touchend', function(event) {
     touchendX = event.changedTouches[0].screenX;
+    console.log("Touch end at:", touchendX);
     handleSwipe('second');
 }, false);
 
 // Function to handle swipe gestures
 function handleSwipe(page) {
+    console.log("Handling swipe for page:", page);
     // If the swipe was right to left (next page)
     if (touchstartX > touchendX) {
+        console.log("Swiped left");
         if (page === 'main') {
             goToNextPage(); // Go to the second page
         }
     }
     // If the swipe was left to right (previous page)
     if (touchendX > touchstartX) {
+        console.log("Swiped right");
         if (page === 'second') {
             goToMainPage(); // Go back to the first page
         }
@@ -127,17 +135,5 @@ function goToMainPage() {
         mainPage.style.animation = 'openBook 1s forwards'; // Apply book opening animation to the main page
     }, 1000); // Wait for the "closeBook" animation to finish before hiding the second page
 }
-// Show the "No cookies, just accept my love" popup when the page loads
-// Show the "No cookies, just accept my love" popup when the page is ready
-document.addEventListener('DOMContentLoaded', function () {
-    const lovePopup = document.getElementById('love-popup');
-    lovePopup.style.display = 'flex'; // Show the popup
-});
-
-// Close the popup when the user clicks "Accept My Love"
-document.getElementById('accept-love').addEventListener('click', function() {
-    const lovePopup = document.getElementById('love-popup');
-    lovePopup.style.display = 'none'; // Hide the popup
-});
 
 startAutoSlide();
