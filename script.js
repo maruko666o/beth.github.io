@@ -60,13 +60,13 @@ slider.addEventListener("touchend", () => {
 });
 
 function goToNextPage() {
-    const container = document.querySelector('.container');
-    container.classList.add('open-page'); // Adds class to trigger opening animation
+    const bookContainer = document.querySelector('.book-container');
+    bookContainer.classList.add('open-book');
 }
 
 function goToMainPage() {
-    const container = document.querySelector('.container');
-    container.classList.remove('open-page'); // Removes class to trigger closing animation
+    const bookContainer = document.querySelector('.book-container');
+    bookContainer.classList.remove('open-book');
 }
 
 
