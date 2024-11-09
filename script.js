@@ -123,5 +123,22 @@ function playFlipSound() {
     flipSound.play();
 }
 
+// JavaScript to handle sound and animation
+window.addEventListener('DOMContentLoaded', () => {
+    const backgroundSound = document.getElementById('backgroundSound');
+    const soundAnimation = document.getElementById('soundAnimation');
 
+    // Play sound when page loads
+    backgroundSound.play();
+
+    // Start sound animation when sound is playing
+    backgroundSound.addEventListener('play', () => {
+        soundAnimation.style.display = 'flex';
+    });
+
+    // Hide sound animation when sound is paused
+    backgroundSound.addEventListener('pause', () => {
+        soundAnimation.style.display = 'none';
+    });
+});
 startAutoSlide();
