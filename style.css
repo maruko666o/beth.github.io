@@ -181,7 +181,7 @@ button {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Dark background */
-    z-index: 1000; /* Ensure it's on top */
+    z-index: 10000; /* Higher z-index */
     justify-content: center;
     align-items: center;
     animation: fadeIn 0.5s; /* Animation for popup appearance */
