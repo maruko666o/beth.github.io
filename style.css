@@ -311,11 +311,11 @@ button {
 .petal {
     position: absolute;
     top: -50px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-color: pink;
+    clip-path: ellipse(50% 50% at 50% 50%);
     opacity: 0.8;
-    border-radius: 50%; /* This makes the petal circular */
     animation: fall linear infinite;
 }
 
