@@ -93,4 +93,16 @@ function goToMainPage() {
     }, 1000); // Wait for the "closeBook" animation to finish before hiding the second page
 }
 
+// Show the love pop-up after the page loads
+window.onload = function() {
+    const lovePopup = document.getElementById('love-popup');
+    lovePopup.style.display = 'block'; // Show the pop-up when the page loads
+};
+
+// Function to close the pop-up when the button is clicked
+function closePopup() {
+    const lovePopup = document.getElementById('love-popup');
+    lovePopup.style.display = 'none'; // Hide the pop-up
+}
+
 startAutoSlide();
