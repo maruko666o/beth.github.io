@@ -94,15 +94,19 @@ function goToMainPage() {
 }
 
 // Show the love pop-up after the page loads
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
+    // Show the love pop-up after the page loads
     const lovePopup = document.getElementById('love-popup');
     lovePopup.style.display = 'block'; // Show the pop-up when the page loads
-};
 
-// Function to close the pop-up when the button is clicked
-function closePopup() {
-    const lovePopup = document.getElementById('love-popup');
-    lovePopup.style.display = 'none'; // Hide the pop-up
-}
+    // Function to close the pop-up when the button is clicked
+    function closePopup() {
+        lovePopup.style.display = 'none'; // Hide the pop-up
+    }
+
+    // Attach the closePopup function to the button
+    const closeButton = lovePopup.querySelector("button");
+    closeButton.addEventListener("click", closePopup);
+});
 
 startAutoSlide();
