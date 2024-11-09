@@ -99,10 +99,13 @@ window.onload = function() {
     setTimeout(() => {
         var popup = document.getElementById("cookie-popup");
         var body = document.body;
+        var backgroundElements = document.querySelectorAll("body > *:not(#cookie-popup)"); // All elements except the pop-up
         if (popup && body) {
             popup.style.display = "block";
-            // Apply the blur effect to the background (not the pop-up)
-            body.classList.add("blur-background");
+            // Apply the blur effect to the background elements
+            backgroundElements.forEach(function(el) {
+                el.classList.add("blur-background");
+            });
         }
     }, 2000); // Adjust the delay as needed
 };
@@ -110,11 +113,13 @@ window.onload = function() {
 // Close the pop-up and remove blur effect when the button is clicked
 function closePopup() {
     var popup = document.getElementById("cookie-popup");
-    var body = document.body;
-    if (popup && body) {
+    var backgroundElements = document.querySelectorAll("body > *:not(#cookie-popup)"); // All elements except the pop-up
+    if (popup) {
         popup.style.display = "none";
-        // Remove the blur effect from the background
-        body.classList.remove("blur-background");
+        // Remove the blur effect from the background elements
+        backgroundElements.forEach(function(el) {
+            el.classList.remove("blur-background");
+        });
     }
 }
 
