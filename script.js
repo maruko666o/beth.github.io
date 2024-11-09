@@ -170,4 +170,13 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+function playMusic() {
+            // Create an audio object and play the music
+            var audio = new Audio('yiruma.mp3');
+            audio.autoplay = true;
+            audio.loop = true;
+            audio.play();
+        }
+
+
 startAutoSlide();
