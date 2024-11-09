@@ -308,7 +308,7 @@ button {
     position: absolute;
     width: 100px;
     height: 100px;
-    background-image: url('rose.png'); /* Replace with a rose image URL */
+    background-image: url('rose.webp'); /* Replace with a rose image URL */
     background-size: cover;
     border-radius: 50%;
     top: 50%;
