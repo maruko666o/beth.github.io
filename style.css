@@ -172,55 +172,54 @@ button {
 }
 
 /* Styles for the love pop-up */
-.popup {
+/* Pop-up container */
+#cookie-popup {
     position: fixed;
-    bottom: 20px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: pink;
-    padding: 20px;
-    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: block; /* Ensure it's set to display */
-    z-index: 9999; /* Very high to stay on top */
+    text-align: center;
+    display: none;
+    z-index: 9999;
+    animation: heartEffect 1s ease-in-out infinite; /* Heartbeat effect */
 }
 
-.popup-content p {
-    font-size: 18px;
-    margin: 10px 0;
-    font-family: Arial, sans-serif;
-}
-
-.popup-content button {
-    background-color: #ff5c8d;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-}
-
-.popup-content button:hover {
-    background-color: #e74c70;
-}
-
-/* Heartbeat animation for the pop-up */
+/* Heartbeat animation */
 @keyframes heartEffect {
-    0% {
-        transform: scale(1);
-    }
-    25% {
-        transform: scale(1.1);
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
     }
     50% {
-        transform: scale(1);
+        transform: translate(-50%, -50%) scale(1.1);
     }
-    75% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+}
+
+/* Text styling */
+#cookie-popup p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2em;
+    color: #ff6b81; /* Pink color */
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* Button styling */
+#cookie-popup button {
+    background-color: #ff6b81; /* Pink background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#cookie-popup button:hover {
+    background-color: #ff3d5c; /* Darker pink on hover */
 }
