@@ -1,4 +1,6 @@
+
 /* Improved styling for a vibrant look */
+
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +31,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: hidden; /* Ensures content doesn't overflow out of the container */
 }
 
 header h1 {
@@ -82,11 +84,18 @@ header p, footer p {
     margin-bottom: 10px;
 }
 
-.caption {
+.cat-caption {
     font-size: 0.9em; /* Smaller text for the caption */
     color: #555;
     margin-top: 5px;
     font-style: italic;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 5px;
 }
 
 footer {
@@ -120,7 +129,7 @@ button {
         width: 40%; /* Reduce image size even more for smaller screens */
         height: 40%; /* Ensure circular shape */
     }
-    .caption {
+    .cat-caption {
         font-size: 0.7em; /* Even smaller caption on mobile */
     }
 }
@@ -133,49 +142,7 @@ button {
         width: 35%; /* Even smaller for very small screens */
         height: 35%; /* Ensure circular shape */
     }
-    .caption {
+    .cat-caption {
         font-size: 0.6em; /* Smaller caption for very small screens */
     }
-}
-
-
-/* Book Container for Flip Effect */
-.book-container {
-    width: 100%;
-    max-width: 400px;
-    height: 100%;
-    perspective: 1200px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Styling for pages */
-.page {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 1s ease;
-}
-
-#main-page {
-    transform: rotateY(0deg); /* Main page is visible initially */
-    z-index: 2;
-}
-
-#second-page {
-    transform: rotateY(-180deg); /* Second page is hidden behind initially */
-    z-index: 1;
-}
-
-/* Class to open book */
-.open-book #main-page {
-    transform: rotateY(180deg);
-}
-
-.open-book #second-page {
-    transform: rotateY(0deg);
 }
