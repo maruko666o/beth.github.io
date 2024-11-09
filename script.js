@@ -101,8 +101,7 @@ window.onload = function() {
         var body = document.body;
         if (popup && body) {
             popup.style.display = "block";
-            // Apply the blur effect to the background (not the pop-up)
-            body.classList.add("blur-background");
+            // Apply the blur effect to the background (not 
         }
     }, 2000); // Adjust the delay as needed
 };
