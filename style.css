@@ -227,6 +227,7 @@ button {
     }
 }
 
+/* Main and Second Page container settings */
 #main-page, #second-page {
   position: relative;
   width: 100%;
@@ -243,8 +244,8 @@ button {
 
 .swipe-area {
   position: relative;
-  width: 90%; /* Adjust as needed */
-  height: 80%;
+  width: 60%; /* Adjust to your preferred size */
+  height: 50%; /* Adjust to your preferred size */
   overflow: hidden;
   display: flex;
   justify-content: center;
