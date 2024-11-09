@@ -204,11 +204,6 @@ button {
 }
 
 /* Blur background effect */
-.blur-background {
-    filter: blur(5px);
-    transition: filter 0.3s ease-in-out;
-}
-
 /* Pop-up text */
 #cookie-popup p {
     font-family: 'Quicksand', sans-serif;
