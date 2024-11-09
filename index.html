@@ -1,70 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>14th Monthsary Celebration</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Book Container -->
-    <div class="book-container">
-        <!-- Main Page -->
-        <div class="container book-page" id="main-page">
-            <header>
-                <h1>79 TEST - Happy 14th Monthsary!</h1>
-                <p>This site is filled with love, cats, and appreciation for you!</p>
-            </header>
+/* Improved styling for a vibrant look */
 
-            <div class="slide-container" id="slider">
-                <!-- Carousel Content -->
-                <div class="slide active">
-                    <img class="cat-img" src="cat1.webp" alt="Cat 1">
-                    <p class="caption">Cute Cat 1</p>
-                </div>
-                <div class="slide">
-                    <img class="cat-img" src="cat2.webp" alt="Cat 2">
-                    <p class="caption">Cute Cat 2</p>
-                </div>
-                <div class="slide">
-                    <img class="cat-img" src="cat3.webp" alt="Cat 3">
-                    <p class="caption">Cute Cat 3</p>
-                </div>
-            </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            <footer>
-                <p>Celebrating 14 months of love and joy. <span class="heart">♥</span></p>
-                <p>With love & cats!</p>
-                <button class="next-button" onclick="goToNextPage()">Read Love Letter</button>
-            </footer>
-        </div>
+body {
+    background-color: #fff0f5;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
 
-        <!-- Second Page (Love Letter) -->
-        <div class="container book-page" id="second-page" style="display: none;">
-            <header>
-                <h2>My Love Letter to You</h2>
-            </header>
-            <div class="letter-content">
-                <p>Dear love,</p>
-                <p>
-                    I can hardly believe how quickly these 14 months have passed. Each day with you has been a beautiful journey, filled with laughter, warmth, and countless little moments that I cherish deeply. I am so grateful for every smile, every hug, and every word we share. You have brought such joy and meaning to my life.
-                </p>
-                <p>
-                    I love you endlessly, and I am so excited for all the wonderful days ahead of us. Thank you for being my everything. Here’s to many more months, years, and a lifetime of love together.
-                </p>
-                <p>Yours forever,</p>
-                <p>Your beloved.</p>
-            </div>
-            <div class="video-container">
-                <iframe width="100%" height="200" src="https://www.youtube.com/embed/your-video-id" title="YouTube video" allowfullscreen></iframe>
-            </div>
-            <button class="back-button" onclick="goToMainPage()">Back to Main Page</button>
-        </div>
-    </div>
+.container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensures content doesn't overflow out of the container */
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: #ff6b81;
+    margin-bottom: 10px;
+}
+
+header p, footer p {
+    font-size: 1em;
+    color: #333;
+}
+
+.heart {
+    color: #ff6b81;
+}
+
+.slide-container {
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 250px; /* Adjusted to fit better */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.slide.active {
+    display: block;
+}
+
+.cat-img {
+    width: 50%; /* Reduced image size for better fitting */
+    height: 50%; /* Make it a circle */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensures the image scales to fill the circle without stretching */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.cat-caption {
+    font-size: 0.9em; /* Smaller text for the caption */
+    color: #555;
+    margin-top: 5px;
+    font-style: italic;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+footer {
+    font-size: 0.9em;
+    margin-top: 20px;
+    color: #888;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff6b81;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em; /* Slightly smaller title for mobile */
+    }
+    .cat-img {
+        width: 40%; /* Reduce image size even more for smaller screens */
+        height: 40%; /* Ensure circular shape */
+    }
+    .cat-caption {
+        font-size: 0.7em; /* Even smaller caption on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Adjust header size on very small screens */
+    }
+    .cat-img {
+        width: 35%; /* Even smaller for very small screens */
+        height: 35%; /* Ensure circular shape */
+    }
+    .cat-caption {
+        font-size: 0.6em; /* Smaller caption for very small screens */
+    }
+}
