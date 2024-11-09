@@ -60,37 +60,19 @@ slider.addEventListener("touchend", () => {
 });
 
 // Navigate to the second page
-// Function to go to the second page (love letter)
 function goToNextPage() {
     const mainPage = document.getElementById('main-page');
     const secondPage = document.getElementById('second-page');
 
-    // Trigger book opening animation for main page
-    mainPage.classList.add('open-book'); // Adding the book opening animation class
-    mainPage.classList.remove('close-book'); // Remove closing class if exists
-
-    // Wait for the animation to finish before showing second page
-    setTimeout(function() {
-        mainPage.style.display = 'none'; // Hide main page
-        secondPage.style.display = 'block'; // Show second page
-        secondPage.classList.add('open-book'); // Trigger the second page to open like a book
-    }, 1000); // Delay to match animation duration (1s)
+    // Hide main page, show second page
+    mainPage.style.display = 'none';
+    secondPage.style.display = 'block';
+    secondPage.classList.add('page-flip');
+    mainPage.classList.remove('page-flip');
 }
 
-// Function to go back to the main page
+// Navigate back to the main page
 function goToMainPage() {
-    const mainPage = document.getElementById('main-page');
-    const secondPage = document.getElementById('second-page');
+    const mainPage
 
-    // Trigger book closing animation for second page
-    secondPage.classList.add('close-book'); // Add closing animation class
-    secondPage.classList.remove('open-book'); // Remove opening class if exists
-
-    // Wait for the animation to finish before showing main page
-    setTimeout(function() {
-        secondPage.style.display = 'none'; // Hide second page
-        mainPage.style.display = 'block'; // Show main page
-        mainPage.classList.add('open-book'); // Trigger main page to open like a book
-    }, 1000); // Delay to match animation duration (1s)
-}
 startAutoSlide();
