@@ -98,28 +98,10 @@ window.onload = function() {
     // Show the pop-up after 2 seconds of page load
     setTimeout(() => {
         var popup = document.getElementById("cookie-popup");
-        if (popup) {
-            popup.style.display = "block";
-        }
-    }, 2000); // Adjust the delay as needed
-};
-
-// Close the pop-up when the button is clicked
-function closePopup() {
-    var popup = document.getElementById("cookie-popup");
-    if (popup) {
-        popup.style.display = "none";
-    }
-}
-
-window.onload = function() {
-    // Show the pop-up after 2 seconds of page load
-    setTimeout(() => {
-        var popup = document.getElementById("cookie-popup");
         var body = document.body;
         if (popup && body) {
             popup.style.display = "block";
-            // Apply the blur effect to the background
+            // Apply the blur effect to the background (not the pop-up)
             body.classList.add("blur-background");
         }
     }, 2000); // Adjust the delay as needed
@@ -135,6 +117,5 @@ function closePopup() {
         body.classList.remove("blur-background");
     }
 }
-
 
 startAutoSlide();
