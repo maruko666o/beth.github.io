@@ -241,20 +241,23 @@ button {
     transform: translate(-50%, -50%);
     display: flex;
     gap: 5px;
-    z-index: 2; /* Ensures the sound bars are above other content but behind images */
+    z-index: 10; /* Make sure it appears above other content */
+    background-color: rgba(255, 0, 0, 0.2); /* Temporary background to check visibility */
+    padding: 10px;
 }
 
+/* Sound bar styling */
 .sound-bar {
     width: 6px;
     height: 40px;
-    background-color: #e75480; /* Dark pink */
+    background-color: #e75480; /* Dark pink color */
     border-radius: 2px;
     opacity: 0.8;
     animation: soundWave 1s infinite ease-in-out;
-    transform-origin: bottom center; /* Ensures the animation grows from the bottom */
+    transform-origin: bottom center; /* Grow from the bottom */
 }
 
-/* Increase the number of bars */
+/* Odd and even child bar heights */
 .sound-bar:nth-child(odd) {
     height: 60px;
     animation-delay: 0.1s;
@@ -265,7 +268,7 @@ button {
     animation-delay: 0.2s;
 }
 
-/* Keyframes for sound bar animation */
+/* Keyframes for the sound wave animation */
 @keyframes soundWave {
     0% {
         transform: scaleY(1);
