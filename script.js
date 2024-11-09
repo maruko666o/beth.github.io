@@ -96,7 +96,7 @@ function goToMainPage() {
 // Show the love pop-up after the page loads
 document.addEventListener("DOMContentLoaded", function() {
     // Show the love pop-up after the page loads
-    const lovePopup = document.getElementById('love-popup');
+    const lovePopup = document.getElementById('cookie-popup');
     lovePopup.style.display = 'block'; // Show the pop-up when the page loads
 
     // Function to close the pop-up when the button is clicked
