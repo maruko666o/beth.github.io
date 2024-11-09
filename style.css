@@ -181,10 +181,8 @@ button {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: none; /* Hidden initially */
-    z-index: 1000;
-    text-align: center;
-    animation: heartEffect 1s infinite;
+    display: block; /* Ensure it's set to display */
+    z-index: 9999; /* Very high to stay on top */
 }
 
 .popup-content p {
